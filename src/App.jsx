@@ -1,28 +1,41 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import ServicesShowcase from './components/ServicesShowcase';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen w-full scroll-smooth bg-[#06070D] text-white antialiased">
+      {/* Top navigation */}
+      <header className="fixed inset-x-0 top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-b-2xl border border-white/10 bg-black/30 px-6 py-3 backdrop-blur-xl">
+          <a href="#home" className="bg-gradient-to-r from-violet-200 to-cyan-200 bg-clip-text text-base font-bold text-transparent">QuanSynd</a>
+          <nav className="hidden items-center gap-6 text-sm text-violet-100/80 md:flex">
+            <a href="#about" className="hover:text-white">About</a>
+            <a href="#work" className="hover:text-white">Work</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
+          <a href="#contact" className="rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-violet-900/30">
+            Get in touch
+          </a>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <ServicesShowcase />
+        <Contact />
+      </main>
+
+      <footer className="relative border-t border-white/10 bg-[#06070D] py-8 text-center text-sm text-violet-100/60">
+        <div className="mx-auto max-w-7xl px-6">
+          © {new Date().getFullYear()} QuanSynd • Crafted for the future
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
